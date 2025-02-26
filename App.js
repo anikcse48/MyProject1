@@ -2,7 +2,26 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, DatePickerAndroid, ScrollView, TouchableOpacity, TouchableWithoutFeedbackComponent} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import CheckBox from '@react-native-community/checkbox';
+import SQLite from 'react-native-sqlite-storage';
 
+
+SQLite.enablePromise(true);
+
+const db = SQLite.openDatabase(
+  { name: 'my_database.db', location: 'default' },
+  () => console.log('Database opened successfully'),
+  error => console.log('Database open failed', error)
+);
+
+const initDatabase = async () => {
+  try {
+    const dbInstance = await db;
+    console.log('Database Initialized:', dbInstance);
+    // Proceed with your queries here
+  } catch (error) {
+    console.error('Error initializing database:', error);
+  }
+};
 
 
 
@@ -52,7 +71,173 @@ export default function DataCollectionForm() {
   const [swmchChecked1, setSwmchChecked1] = useState(false);
 
 
+ 
+const createTable = (db) => {
+  db.transaction(tx => {
+    tx.executeSql(
+      `CREATE TABLE IF NOT EXISTS women_data (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        date_of_collection TEXT,
+        time_of_collection TEXT,
+        hospital_admission_date TEXT,
+        hospital_admission_time TEXT,
+        hospital_registration_number TEXT,
+        woman_name TEXT,
+        husband_name TEXT,
+        district TEXT,
+        upazila TEXT,
+        village TEXT,
+        landmark TEXT,
+        mobile1 TEXT,
+        mobile2 TEXT,
+        mobile3 TEXT,
+        lmp_date TEXT,
+        usg_available TEXT,
+        usg_date TEXT,
+        mode_of_delivery TEXT,
+        delivery_date TEXT,
+        delivery_time TEXT,
+        outcome TEXT,
+        birth_order1 TEXT,
+        birth_order2 TEXT,
+        end_interview_time TEXT,
+        paramedic_name TEXT
+      );`,
+      () => console.log('Table created successfully!'),
+      error => console.log('Error creating table: ', error)
+    );
+  });
+};
+
+
+const insertData = (db, formData) => {
+  db.transaction(tx => {
+    tx.executeSql(
+      'INSERT INTO women_data (date_of_collection, time_of_collection, hospital_admission_date, hospital_admission_time, hospital_registration_number, woman_name, husband_name, district, upazila, village, landmark, mobile1, mobile2, mobile3, lmp_date, usg_available, usg_date, mode_of_delivery, delivery_date, delivery_time, outcome, birth_order1, birth_order2, end_interview_time, paramedic_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [
+        formData.dateOfCollection,
+        formData.timeOfCollection,
+        formData.hospitalAdmissionDate,
+        formData.hospitalAdmissionTime,
+        formData.hospitalRegistrationNumber,
+        formData.womanName,
+        formData.husbandName,
+        formData.district,
+        formData.upazila,
+        formData.village,
+        formData.landmark,
+        formData.mobile1,
+        formData.mobile2,
+        formData.mobile3,
+        formData.lmpDate,
+        formData.usgAvailable,
+        formData.usgDate,
+        formData.modeOfDelivery,
+        formData.deliveryDate,
+        formData.deliveryTime,
+        formData.outcome,
+        formData.birthOrder1,
+        formData.birthOrder2,
+        formData.endInterviewTime,
+        formData.paramedicName
+      ],
+      () => {
+        console.log('Data inserted successfully!');
+      },
+      error => {
+        console.log('Error inserting data: ', error);
+      }
+    );
+  });
+};
+
+
+const fetchData = (db) => {
+  return new Promise((resolve, reject) => {
+    db.transaction(tx => {
+      tx.executeSql(
+        'SELECT * FROM women_data',
+        [],
+        (tx, results) => {
+          const rows = results.rows;
+          let data = [];
+          for (let i = 0; i < rows.length; i++) {
+            data.push(rows.item(i));
+          }
+          resolve(data);
+        },
+        error => {
+          reject('Error fetching data: ', error);
+        }
+      );
+    });
+  });
+};
+
+
+const updateData = (db, id, formData) => {
+  db.transaction(tx => {
+    tx.executeSql(
+      'UPDATE women_data SET date_of_collection = ?, time_of_collection = ?, hospital_admission_date = ?, hospital_admission_time = ?, hospital_registration_number = ?, woman_name = ?, husband_name = ?, district = ?, upazila = ?, village = ?, landmark = ?, mobile1 = ?, mobile2 = ?, mobile3 = ?, lmp_date = ?, usg_available = ?, usg_date = ?, mode_of_delivery = ?, delivery_date = ?, delivery_time = ?, outcome = ?, birth_order1 = ?, birth_order2 = ?, end_interview_time = ?, paramedic_name = ? WHERE id = ?',
+      [
+        formData.dateOfCollection,
+        formData.timeOfCollection,
+        formData.hospitalAdmissionDate,
+        formData.hospitalAdmissionTime,
+        formData.hospitalRegistrationNumber,
+        formData.womanName,
+        formData.husbandName,
+        formData.district,
+        formData.upazila,
+        formData.village,
+        formData.landmark,
+        formData.mobile1,
+        formData.mobile2,
+        formData.mobile3,
+        formData.lmpDate,
+        formData.usgAvailable,
+        formData.usgDate,
+        formData.modeOfDelivery,
+        formData.deliveryDate,
+        formData.deliveryTime,
+        formData.outcome,
+        formData.birthOrder1,
+        formData.birthOrder2,
+        formData.endInterviewTime,
+        formData.paramedicName,
+        id
+      ],
+      () => {
+        console.log('Data updated successfully!');
+      },
+      error => {
+        console.log('Error updating data: ', error);
+      }
+    );
+  });
+};
+
+
+const deleteData = (db, id) => {
+  db.transaction(tx => {
+    tx.executeSql(
+      'DELETE FROM women_data WHERE id = ?',
+      [id],
+      () => {
+        console.log('Data deleted successfully!');
+      },
+      error => {
+        console.log('Error deleting data: ', error);
+      }
+    );
+  });
+};
+
+
   
+    
+    
+          
 
 
 
@@ -73,6 +258,7 @@ export default function DataCollectionForm() {
     
 
     const formData = {
+     
       dateOfCollection,
       timeOfCollection,
       hospitalAdmissionDate,
@@ -799,7 +985,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   picker: {
-    height: 50,
+    height: 60,
     width: 300,
     borderColor: 'gray',
     borderWidth: 1,
@@ -916,7 +1102,6 @@ checkboxContainer: {
   justifyContent: 'space-around', // Space out the checkboxes
   alignItems: 'center', // Align items vertically in the center
 },
-
 
 
 });
