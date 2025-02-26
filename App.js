@@ -69,6 +69,12 @@ export default function DataCollectionForm() {
   const [swmchChecked, setSwmchChecked] = useState(false);
   const [somchChecked1, setSomchChecked1] = useState(false);
   const [swmchChecked1, setSwmchChecked1] = useState(false);
+  const [lmpDate2, setLmpDate2] = useState('');
+  const [union, setUnion] = useState('');
+  const [lmpDate1, setLmpDate1] = useState('');
+  const [deliveryTime1, setDeliveryTime1] = useState('');
+  
+
 
 
  
@@ -439,23 +445,569 @@ const deleteData = (db, id) => {
         <Picker.Item label="Habiganj" value="04" />
         <Picker.Item label="Others" value="09" />
       </Picker>
-      {district === "09" && (
+      
+
+{district === "01" && (
         <View style={styles.inputContainer}>
-          <Text>Enter District Name:</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Type district name"
-          
-          />
-        </View>
+        <Text style={styles.label}>Upazila / City Corporation:</Text>
+        <Picker
+        selectedValue={upazila}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUpazila(itemValue)}>
+      
+        <Picker.Item label="Sylhet city corporation" value="101" />
+        <Picker.Item label="Sylhet Sadar (outside Sylhet city corporation" value="102" />
+        <Picker.Item label="South Surma (outside Sylhet city corporation)" value="103" />
+        <Picker.Item label="Golapganj" value="104" />
+        <Picker.Item label="Biswanath" value="105" />
+        <Picker.Item label="Companiganj" value="106" />
+        <Picker.Item label="Gowainghat" value="107" />
+        <Picker.Item label="Fenchuganj" value="108" />
+        <Picker.Item label="Beanibazar" value="109" />
+        <Picker.Item label="Osmaninagar" value="110" />
+        <Picker.Item label="Zakiganj" value="111" />
+        <Picker.Item label="Balaganj" value="112" />
+        <Picker.Item label="Kanaighat" value="113" />
+        <Picker.Item label="Jaintapur" value="114" />
+        <Picker.Item label="Others" value="199" />
+
+      </Picker>
+      </View>
       )}
-      <Text style={styles.label}>Upazila / City Corporation:</Text>
-      <TextInput
-        style={styles.input}
-        value={upazila}
-        onChangeText={setUpazila}
-        placeholder="Enter upazila"
-      />
+
+{upazila === "199" && (
+        <View style={styles.inputContainer}>
+        <Text>Enter Upazila Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type upazila name"
+        
+        />
+        <Text>Enter Union Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type union name"
+        
+        />
+      </View>
+      )}
+
+
+
+{district === "02" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Upazila / City Corporation:</Text>
+        <Picker
+        selectedValue={upazila}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUpazila(itemValue)}>
+      
+        <Picker.Item label="Sunamganj Sador" value="201" />
+        <Picker.Item label="Shantiganj" value="202" />
+        <Picker.Item label="Bishwambarpur" value="203" />
+        <Picker.Item label="Chhatakj" value="204" />
+        <Picker.Item label="Jagannathpur" value="205" />
+        <Picker.Item label="Tahirpur" value="206" />
+        <Picker.Item label="Dharmapasha" value="207" />
+        <Picker.Item label="Jamalganjj" value="208" />
+        <Picker.Item label="Shalla" value="209" />
+        <Picker.Item label="Derai" value="210" />
+        <Picker.Item label="Dowarabazarj" value="211" />
+        <Picker.Item label="Madhyanagar" value="212" />
+        <Picker.Item label="Others" value="299" />
+
+      </Picker>
+      </View>
+      )}
+
+{upazila === "299" && (
+        <View style={styles.inputContainer}>
+        <Text>Enter Upazila Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type upazila name"
+        
+        />
+        <Text>Enter Union Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type union name"
+        
+        />
+      </View>
+      )}
+
+
+{district === "03" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Upazila / City Corporation:</Text>
+        <Picker
+        selectedValue={upazila}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUpazila(itemValue)}>
+      
+        <Picker.Item label="Barlekha" value="301" />
+        <Picker.Item label="Kamolganj" value="302" />
+        <Picker.Item label="Kulaura" value="303" />
+        <Picker.Item label="Moulvibazar sadar" value="304" />
+        <Picker.Item label="Rajnagar" value="305" />
+        <Picker.Item label="Sreemangal" value="306" />
+        <Picker.Item label="Juri" value="307" />
+        <Picker.Item label="Others" value="399" />
+
+      </Picker>
+      </View>
+      )}
+
+{upazila === "399" && (
+        <View style={styles.inputContainer}>
+        <Text>Enter Upazila Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type upazila name"
+        
+        />
+
+<Text>Enter Union Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type union name"
+        
+        />
+      </View>
+      )}
+
+
+{district === "04" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Upazila / City Corporation:</Text>
+        <Picker
+        selectedValue={upazila}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUpazila(itemValue)}>
+      
+        <Picker.Item label="Madhabpur" value="401" />
+        <Picker.Item label="Baniachong" value="402" />
+        <Picker.Item label="Chunarughat" value="403" />
+        <Picker.Item label="Bahubal" value="404" />
+        <Picker.Item label="Ajmiriganj" value="405" />
+        <Picker.Item label="Nabiganj" value="406" />
+        <Picker.Item label="Habiganj sadar" value="407" />
+        <Picker.Item label="Lakhai" value="408" />
+        <Picker.Item label="Shayestaganj" value="409" />
+        <Picker.Item label="Others" value="499" />
+
+      </Picker>
+      </View>
+      )}
+
+{upazila === "499" && (
+        <View style={styles.inputContainer}>
+        <Text>Enter Upazila Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type upazila name"
+        
+        />
+        <Text>Enter Union Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type union name"
+        
+        />
+      </View>
+      )}
+
+
+
+{district === "09" && (
+        <View style={styles.inputContainer}>
+        <Text>Enter District Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type district name"
+          />
+
+          <Text>Enter Upazila Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type upazila name"
+        
+        />
+
+<Text>Enter Union Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type union name"
+        
+        />
+        
+        
+      </View>
+      )}
+
+
+
+
+
+{upazila === "101" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+      
+        <Picker.Item label="Word 1" value="1001" />
+        <Picker.Item label="Word 2" value="1002" />
+        <Picker.Item label="Word 3" value="1003" />
+        <Picker.Item label="Word 4" value="1004" />
+        <Picker.Item label="Word 5" value="1005" />
+        <Picker.Item label="Word 6" value="1006" />
+        <Picker.Item label="Word 7" value="1007" />
+        <Picker.Item label="Word 8" value="1008" />
+        <Picker.Item label="Word 9" value="1009" />
+        <Picker.Item label="Word 10" value="1010" />
+        <Picker.Item label="Word 11" value="1011" />
+        <Picker.Item label="Word 12" value="1012" />
+        <Picker.Item label="Word 13" value="1013" />
+        <Picker.Item label="Word 14" value="1014" />
+        <Picker.Item label="Word 15" value="1015" />
+        <Picker.Item label="Word 16" value="1016" />
+        <Picker.Item label="Word 17" value="1017" />
+        <Picker.Item label="Word 18" value="1018" />
+        <Picker.Item label="Word 19" value="1019" />
+        <Picker.Item label="Word 20" value="1020" />
+        <Picker.Item label="Word 21" value="1021" />
+        <Picker.Item label="Word 22" value="1022" />
+        <Picker.Item label="Word 23" value="1023" />
+        <Picker.Item label="Word 24" value="1024" />
+        <Picker.Item label="Word 25" value="1025" />
+        <Picker.Item label="Word 26" value="1026" />
+        <Picker.Item label="Word 27" value="1027" />
+        <Picker.Item label="Word 28" value="1028" />
+        <Picker.Item label="Word 29" value="1029" />
+        <Picker.Item label="Word 30" value="1030" />
+        <Picker.Item label="Word 31" value="1031" />
+        <Picker.Item label="Word 32" value="1032" />
+        <Picker.Item label="Word 33" value="1033" />
+        <Picker.Item label="Word 34" value="1034" />
+        <Picker.Item label="Word 35" value="1035" />
+        <Picker.Item label="Word 36" value="1036" />
+        <Picker.Item label="Word 37" value="1037" />
+        <Picker.Item label="Word 38" value="1038" />
+        <Picker.Item label="Word 39" value="1039" />
+        <Picker.Item label="Word 40" value="1040" />
+        <Picker.Item label="Word 41" value="1041" />
+        <Picker.Item label="Word 42" value="1042" />
+
+
+      </Picker>
+      </View>
+      )}
+
+      {upazila === "102" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Jalalabad" value="1043" />
+        <Picker.Item label="Hatkhula" value="1044" />
+        <Picker.Item label="Khadimnagar" value="1045" />
+        <Picker.Item label="Khadimpara" value="1046" />
+        <Picker.Item label="Tultikor" value="1047" />
+        <Picker.Item label="Tukerbazar" value="1048" />
+        <Picker.Item label="Mugolgaon" value="1049" />
+        <Picker.Item label="Kandigaon" value="1050" />
+
+      </Picker>
+      </View>
+      )}
+
+
+
+{upazila === "103" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Lalabazar" value="1051" />
+        <Picker.Item label="Moglabazar" value="1052" />
+        <Picker.Item label="Boroikandi" value="1053" />
+        <Picker.Item label="Silam" value="1054" />
+        <Picker.Item label="Daudpur" value="1055" />
+        <Picker.Item label="Mollargao" value="1056" />
+        <Picker.Item label="Kuchai" value="1057" />
+        <Picker.Item label="Kamalbazar" value="1058" />
+        <Picker.Item label="Jalalpur" value="1059" />
+        <Picker.Item label="Tetli" value="1060" />
+
+      </Picker>
+      </View>
+      )}
+
+
+
+
+{upazila === "104" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Lakshmipasha" value="1061" />
+        <Picker.Item label="Budhbaribazar" value="1062" />
+        <Picker.Item label="Dhakadakshin" value="1063" />
+        <Picker.Item label="Sharifganj" value="1064" />
+        <Picker.Item label="Uttarbadepasha" value="1065" />
+        <Picker.Item label="Lakshanaband" value="1066" />
+        <Picker.Item label="Bhadeshwar" value="1067" />
+        <Picker.Item label="Westamura" value="1068" />
+        <Picker.Item label="Bagha" value="1069" />
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "105" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Rampasha " value="1070" />
+        <Picker.Item label="Lamakaz" value="1071" />
+        <Picker.Item label="Khajanchi" value="1072" />
+        <Picker.Item label="Alankari" value="1073" />
+        <Picker.Item label="Dewkalash" value="1074" />
+        <Picker.Item label="Bishwanath" value="1075" />
+        <Picker.Item label="Doshghar" value="1076" />
+        <Picker.Item label="Daulatpur" value="1077" />
+        
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "106" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Telikhal " value="1078" />
+        <Picker.Item label="Islampurpaschim" value="1079" />
+        <Picker.Item label="Islampurpurba" value="1080" />
+        <Picker.Item label="Isakalas" value="1081" />
+        <Picker.Item label="Uttorronikhai" value="1082" />
+        <Picker.Item label="Dakkinronikhai" value="1083" />
+        
+        
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "107" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Fothepur " value="1084" />
+        <Picker.Item label="Rustampur" value="1085" />
+        <Picker.Item label="Paschimjaflong" value="1086" />
+        <Picker.Item label="Purbajaflong" value="1087" />
+        <Picker.Item label="Lengura" value="1088" />
+        <Picker.Item label="Alirgaon" value="1089" />
+        <Picker.Item label="Nandirgaon" value="1090" />
+        <Picker.Item label="Towakul" value="1091" />
+        <Picker.Item label="Daubari" value="1092" />
+        <Picker.Item label="Gowainghatsadar" value="1093" />
+        <Picker.Item label="Paschimalirgaon" value="1094" />
+        
+        
+      </Picker>
+      </View>
+      )}
+
+{upazila === "108" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Ghilachora " value="1095" />
+        <Picker.Item label="Fenchuganj" value="1096" />
+        <Picker.Item label="Uttarkushiara" value="1097" />
+        <Picker.Item label="Uttarfenchuganj" value="1098" />
+        <Picker.Item label="Maijgaon" value="1099" />
+        
+        
+      </Picker>
+      </View>
+      )}
+
+{upazila === "109" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Tilparaup " value="1100" />
+        <Picker.Item label="Alinagar" value="1101" />
+        <Picker.Item label="Charkhai" value="1102" />
+        <Picker.Item label="Dubag" value="1103" />
+        <Picker.Item label="Sheola" value="1104" />
+        <Picker.Item label="Kurarbazar " value="1105" />
+        <Picker.Item label="Mathiura" value="1106" />
+        <Picker.Item label="Mullapur" value="1107" />
+        <Picker.Item label="Muria" value="1108" />
+        <Picker.Item label="Lauta" value="1109" />
+        
+        
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "110" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Tazpur " value="1110" />
+        <Picker.Item label="Umorpur" value="1111" />
+        <Picker.Item label="Westpoilanpur" value="1112" />
+        <Picker.Item label="Burungabazar" value="1113"/>
+        <Picker.Item label="Goalabazar" value="1114" />
+        <Picker.Item label="Doyamir " value="1115" />
+        <Picker.Item label="Usmanpur" value="1116" />
+        <Picker.Item label="Sadipur" value="1117" />
+      </Picker>
+      </View>
+      )}
+
+
+
+{upazila === "111" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Manikpur " value="1118" />
+        <Picker.Item label="Sultanpur" value="1119" />
+        <Picker.Item label="Barohal" value="1120" />
+        <Picker.Item label="Kajalshah" value="1121"/>
+        <Picker.Item label="kholachora" value="1122" />
+        <Picker.Item label="Zakiganj " value="1123" />
+        <Picker.Item label="Barothakuri" value="1124" />
+        <Picker.Item label="Kaskanakpur" value="1125" />
+      </Picker>
+      </View>
+      )}
+
+
+
+{upazila === "112" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Eastpoilanpur " value="1126" />
+        <Picker.Item label="Boaljur" value="1127" />
+        <Picker.Item label="Dewanbazar" value="1128" />
+        <Picker.Item label="Westgouripur" value="1129"/>
+        <Picker.Item label="Westgouripur" value="1130" />
+        <Picker.Item label="Eastgouripur " value="1131" />
+        <Picker.Item label="Balaganj" value="1132" />
+       
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "113" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Rajagonj " value="1133" />
+        <Picker.Item label="Lakshiprashadpurbo" value="1134" />
+        <Picker.Item label="Lakshiprashadpashim" value="1135" />
+        <Picker.Item label="Digirparpurbo" value="1136"/>
+        <Picker.Item label="Satbakh" value="1137" />
+        <Picker.Item label="Barachotul " value="1138" />
+        <Picker.Item label="Kanaighat" value="1139" />
+        <Picker.Item label="Dakhinbanigram " value="1140" />
+        <Picker.Item label="Jinghabari" value="1141" />
+       
+      </Picker>
+      </View>
+      )}
+
+
+
+{upazila === "114" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Nijpat " value="1142" />
+        <Picker.Item label="Jaintapur" value="1143" />
+        <Picker.Item label="Charikatha" value="1144" />
+        <Picker.Item label="Darbast" value="1145"/>
+        <Picker.Item label="Fatehpur" value="1146" />
+        <Picker.Item label="Chiknagul " value="1147" />
+       
+      </Picker>
+      </View>
+      )}
+
+
+
+
+
+
+
+
+
+
+
+
       <Text style={styles.label}>Village / Ward:</Text>
       <TextInput
         style={styles.input}
@@ -552,8 +1104,8 @@ const deleteData = (db, id) => {
       
         <TextInput
         style={styles.input}
-        value={lmpDate}
-        onChangeText={setLmpDate}
+        value={lmpDate1}
+        onChangeText={setLmpDate1}
         placeholder="DD/MM/YYYY"
       />
       </View>
@@ -565,8 +1117,8 @@ const deleteData = (db, id) => {
       
         <TextInput
         style={styles.input}
-        value={lmpDate}
-        onChangeText={setLmpDate}
+        value={lmpDate2}
+        onChangeText={setLmpDate2}
         placeholder="DD/MM/YYYY"
       />
       </View>
@@ -649,8 +1201,8 @@ const deleteData = (db, id) => {
       <Text style={styles.label}>Time of Delivery (24-hour clock):</Text>
       <TextInput
         style={styles.input}
-        value={deliveryTime}
-        onChangeText={setDeliveryTime}
+        value={deliveryTime1}
+        onChangeText={setDeliveryTime1}
         placeholder="HH:MM"
       />
        <Text style={styles.label}>GA of the mother on the date of delivery ):</Text>
@@ -986,10 +1538,16 @@ const styles = StyleSheet.create({
   },
   picker: {
     height: 60,
-    width: 300,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginVertical: 20,
+    width: 350,
+   
+    fontSize: 16,
+    marginTop: 10,
+    marginBottom: 5,
+    borderWidth: 1,            // Adds border width
+    borderColor: '#000',       // Border color, change to desired color
+    borderRadius: 5,           // Rounded corners for the border
+    paddingHorizontal: 10,     // Adds space inside the label (left and right)
+    paddingVertical: 5, 
   },
   formBox: {
     width: '100%',
