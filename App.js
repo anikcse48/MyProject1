@@ -5,6 +5,9 @@ import CheckBox from '@react-native-community/checkbox';
 import SQLite from 'react-native-sqlite-storage';
 
 
+
+
+
 SQLite.enablePromise(true);
 
 const db = SQLite.openDatabase(
@@ -22,6 +25,9 @@ const initDatabase = async () => {
     console.error('Error initializing database:', error);
   }
 };
+
+
+
 
 
 
@@ -296,7 +302,11 @@ const deleteData = (db, id) => {
     Alert.alert('Success', 'Form submitted successfully!');
   };
 
+
+
   return (
+    
+  
     <ScrollView style={styles.container}>
       <Text style={styles.header}>
        Projahnmo Research Foundation</Text>
@@ -993,6 +1003,192 @@ const deleteData = (db, id) => {
         <Picker.Item label="Fatehpur" value="1146" />
         <Picker.Item label="Chiknagul " value="1147" />
        
+      </Picker>
+      </View>
+      )}
+
+
+
+{upazila === "201" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Jahangirnagar " value="2001" />
+        <Picker.Item label="Rangarchar" value="2002" />
+        <Picker.Item label="Kurbannagar" value="2003" />
+        <Picker.Item label="Gourarang" value="2004"/>
+        <Picker.Item label="Mollapara" value="2005" />
+        <Picker.Item label="Laxmansreen " value="2006" />
+        <Picker.Item label="Kathair" value="2007" />
+        <Picker.Item label="Surma " value="2008" />
+        <Picker.Item label="Mohonpur " value="2009" />
+       
+      </Picker>
+      </View>
+      )}
+
+
+
+{upazila === "202" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Shimulbak " value="2010" />
+        <Picker.Item label="Paschimpagla" value="2011" />
+        <Picker.Item label="Joykalash" value="2012" />
+        <Picker.Item label="Purbapagla" value="2013"/>
+        <Picker.Item label="Patharia" value="2014" />
+        <Picker.Item label="Purbabirgaon " value="2015" />
+        <Picker.Item label="Dargapasha" value="2016" />
+        <Picker.Item label="Paschimbirgaon " value="2017" />
+      
+       
+      </Picker>
+      </View>
+      )}
+
+{upazila === "203" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Palash " value="2018" />
+        <Picker.Item label="Solukabad" value="2019" />
+        <Picker.Item label="Badaghatsouth" value="2020" />
+        <Picker.Item label="Fatepur" value="2021"/>
+        <Picker.Item label="Dhanpur" value="2022" />
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "204" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Islampur " value="2023" />
+        <Picker.Item label="Noarai" value="2024" />
+        <Picker.Item label="Chhataksadar" value="2025" />
+        <Picker.Item label="Gobindganjsyedergaon" value="2026"/>
+        <Picker.Item label="Kalaruka" value="2027" />
+        <Picker.Item label="Chhailaafjalabad " value="2028" />
+        <Picker.Item label="Khurmanorth" value="2029" />
+        <Picker.Item label="khurmasouth" value="2030" />
+        <Picker.Item label="Chormohalla" value="2031"/>
+        <Picker.Item label="Jauwabazar" value="2032" />
+        <Picker.Item label="Singchapair " value="2033" />
+        <Picker.Item label="Dolarbazar" value="2034" />
+        <Picker.Item label="Bhatgaon" value="2035" />
+      </Picker>
+      </View>
+      )}
+
+
+
+
+{upazila === "205" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Kolkolia " value="2036" />
+        <Picker.Item label="Patli" value="2037" />
+        <Picker.Item label="Mirpur" value="2038" />
+        <Picker.Item label="Chilauraholdipur" value="2039"/>
+        <Picker.Item label="Raniganj" value="2040" />
+        <Picker.Item label="Syedpurshaharpara " value="2041" />
+        <Picker.Item label="Asharkandi" value="2042" />
+        <Picker.Item label="Pailgaon" value="2043" />
+        
+      </Picker>
+      </View>
+      )}
+
+
+
+{upazila === "206" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Sreepurnorth " value="2044" />
+        <Picker.Item label="Sreepursouth" value="2045" />
+        <Picker.Item label="Bordalsouth" value="2046" />
+        <Picker.Item label="Bordalnorth" value="2047"/>
+        <Picker.Item label="Badaghat" value="2048" />
+        <Picker.Item label="Tahirpursadar " value="2049" />
+        <Picker.Item label="Balijuri" value="2050" />
+        
+        
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "207" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Bongshikundanorth " value="2051" />
+        <Picker.Item label="Bongshikundasouth" value="2052" />
+        <Picker.Item label="Chamordani" value="2053" />
+        <Picker.Item label="Madhyanagar" value="2054"/>
+        <Picker.Item label="Paikurati" value="2055" />
+        <Picker.Item label="Selbarash " value="2056" />
+        <Picker.Item label="Dharmapashasadar" value="2057" />
+        <Picker.Item label="Joyasree " value="2058" />
+        <Picker.Item label="Sukhairrajapursouth" value="2059" />
+        
+        
+      </Picker>
+      </View>
+      )}
+
+
+{upazila === "208" && (
+        <View style={styles.inputContainer}>
+        <Text style={styles.label}>Union:</Text>
+        <Picker
+        selectedValue={union}
+        style={styles.picker}
+        onValueChange={(itemValue) => setUnion(itemValue)}>
+    
+        <Picker.Item label="Bongshikundanorth " value="2051" />
+        <Picker.Item label="Bongshikundasouth" value="2052" />
+        <Picker.Item label="Chamordani" value="2053" />
+        <Picker.Item label="Madhyanagar" value="2054"/>
+        <Picker.Item label="Paikurati" value="2055" />
+        <Picker.Item label="Selbarash " value="2056" />
+        <Picker.Item label="Dharmapashasadar" value="2057" />
+        <Picker.Item label="Joyasree " value="2058" />
+        <Picker.Item label="Sukhairrajapursouth" value="2059" />
+        
+        
       </Picker>
       </View>
       )}
